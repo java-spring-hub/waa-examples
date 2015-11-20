@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Order</display-name>
+ 
+ 	<context-param>
+ 			<param-name>applicationName</param-name>
+ 			<param-value>Order Form</param-value>	
+ 	</context-param>
+ 
+   <servlet>
+    	<servlet-name>order</servlet-name>
+    	<servlet-class>mum.edu.servlet.Order</servlet-class>
+    	<init-param>
+    		<param-name>servletName</param-name>
+    		<param-value>MVC2</param-value>
+    	</init-param>
+  </servlet>
+  
+    <listener>
+    	<listener-class>
+			mum.edu.listener.OrderContextListener 
+		</listener-class>
+  </listener>
+  
+  
+    <servlet-mapping>
+    <servlet-name>order</servlet-name>
+    <url-pattern>/order.do</url-pattern>
+  </servlet-mapping>
+</web-app>

@@ -1,0 +1,86 @@
+#global {
+    text-align: left;
+    border: 1px solid #dedede;
+    background: #efefef;
+    width: 560px;
+    padding: 20px;
+    margin: 100px auto;
+}
+
+form {
+  font:100% verdana;
+  min-width: 500px;
+  max-width: 600px;
+  width: 560px;
+}
+
+form fieldset {
+  border-color: #bdbebf;
+  border-width: 3px;
+  margin: 0;
+}
+
+legend {
+    font-size: 1.3em;
+}
+
+/*
+form label { 
+    width: 250px;
+    display: block;
+    float: left;
+    text-align: right;
+    padding: 2px;
+}
+*/
+table td {
+	border: 1px solid #dedede;
+	background: MistyRose;
+	/* for web colors visit http://en.wikipedia.org/wiki/Web_colors */
+}
+
+#buttons {
+    text-align: right;
+}
+#errors, li {
+	color: FireBrick;
+}
+.error {
+    color: red;
+    font-size: 9pt;	
+}
+
+ #formInput {
+	position:absolute;
+    top:  200px;
+    left: 275px;
+	background-color:LightCyan;	
+	width:375px;
+	height:270px;
+	z-index: 9002;
+   	border-style: solid;
+    border-color: blue;
+}
+
+ #result {
+	position:absolute;
+    top:  50px;
+    left: 275px;
+	background-color:LightBlue;	
+	width:375px;
+	height:175px;
+	z-index: 9002;
+   	border-style: solid;
+    border-color: blue;
+}
+
+
+#rightList{
+     position:absolute;
+     width:350px;
+     height:50px;
+     z-index:15;
+      top:10%;  
+     left:40%;
+     background: #efefef;
+}

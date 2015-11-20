@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd     
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+   
+        <mvc:annotation-driven> 
+            <mvc:argument-resolvers>
+            	<bean class="org.springframework.mobile.device.site.SitePreferenceWebArgumentResolver" />           
+           		<bean class="org.springframework.mobile.device.DeviceWebArgumentResolver" />
+        	</mvc:argument-resolvers>
+         </mvc:annotation-driven> 
+              
+    <context:component-scan base-package="mum.edu.controller"/>
+        
+     <!--bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean-->
+  
+  	<mvc:resources  location="/resources/"  mapping="/resources/**"/>
+    
+ 	<bean id= "messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+   		<property name="basename" value="students"/> 
+	</bean>
+	
+	
+	   <mvc:interceptors>
+        <!-- Resolve the device which has generated the request provides object to handler-->
+        <bean class="org.springframework.mobile.device.DeviceResolverHandlerInterceptor" />
+     
+        <!-- User's site preference User PICK preference-->
+        <!--bean class="org.springframework.mobile.device.site.SitePreferenceHandlerInterceptor" /-->
+     
+        <!-- Redirects users to the device specific site  -->
+        <!--bean class="org.springframework.mobile.device.switcher.SiteSwitcherHandlerInterceptor" factory-method="urlPath">
+            <constructor-arg index="0" value="/mobile" />
+            <constructor-arg index="1" value="/tablet" />
+         </bean-->
+    </mvc:interceptors>
+     
+    <!-- Device aware view resolving -->
+    <bean id="liteDeviceDelegatingViewResolver" class="org.springframework.mobile.device.view.LiteDeviceDelegatingViewResolver">
+        <constructor-arg>
+            <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                <property name="prefix" value="/WEB-INF/views/" />
+                <property name="suffix" value=".jsp" />
+            </bean>
+        </constructor-arg>
+     
+         <property name="mobilePrefix" value="mobile/" />
+        <property name="tabletPrefix" value="tablet/" />
+        <!-- property name="enableFallback" value="true" /-->
+    </bean>
+ 
+ 
+</beans>

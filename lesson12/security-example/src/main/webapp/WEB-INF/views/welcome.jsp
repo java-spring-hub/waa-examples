@@ -26,7 +26,8 @@
             <security:authorize access="isAnonymous()">
                 <!-- WHICH ONE? depends on basic form OR CUSTOM -->
                 <%--    					<a href="<spring:url value='/spring_security_login' />" class="btn btn-default pull-right"> Login</a>
-                --%>                        <a href="<spring:url value='/login' />" class="btn btn-default pull-right"> Login</a>
+                --%>                        <a href="<spring:url value='/login' />" class="btn btn-default pull-right">
+                Login</a>
             </security:authorize>
 
             <a href="<spring:url value='/members' />" class="btn btn-default">

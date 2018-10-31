@@ -14,7 +14,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Constraint(validatedBy = ProductIdValidator.class)
 @Documented
 public @interface ProductId {
-    String message() default "{com.packt.webstore.validator.ProductId.message}";
+    String message() default "{com.eprogrammerz.examples.taglib.validator.ProductId.message}";
 
     Class<?>[] groups() default {};
 

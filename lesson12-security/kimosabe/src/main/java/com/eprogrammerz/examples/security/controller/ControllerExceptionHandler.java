@@ -19,7 +19,6 @@ public class ControllerExceptionHandler {
 
     @ExceptionHandler(value = AccessDeniedException.class)
     public ModelAndView accessDenied() {
-
         ModelAndView mv = new ModelAndView();
         mv.setViewName("error-forbidden");
         return mv;
